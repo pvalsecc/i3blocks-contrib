@@ -95,7 +95,7 @@ def pangoEscape(text):
     return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 def getLeafDevicePaths():
-    lines = check_output(['lsblk', '-spndo', 'NAME'], universal_newlines=True)
+    lines = check_output(['lsblk', '--tree=RA', '-spndo', 'NAME'], universal_newlines=True)
     lines = lines.split("\n")
     lines = filter(None, lines)
     return lines
